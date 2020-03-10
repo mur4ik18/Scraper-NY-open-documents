@@ -42,7 +42,7 @@ def fistPage(url, shell, mtitle):
 firstPage_links = fistPage(GURL, Gshell, Gtitle)
 #print(firstPage_links)
 
-for i in range(0 , len(firstPage_links)-1):
+for i in range(0 , len(firstPage_links)):
     secondPage_links.append(fistPage(firstPage_links[i], Gshell, Gtitle))
     #print(secondPage_links[i])
 
@@ -112,16 +112,16 @@ titleList = fistPageTit('https://www.nysenate.gov/legislation/laws/CVP','.c-law-
 NameList = fistPageTit('https://www.nysenate.gov/legislation/laws/CVP','.c-law-link-title', 'a')
 
 
-for i in range(0, len(secondPage_links)-1):
+for i in range(0, len(secondPage_links)):
     print(titleList[i].replace('  ', ''))
     print(NameList[i].replace('  ', ''))
     p = document.add_heading(titleList[i].replace('  ', ''), 1)
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     c =document.add_paragraph(NameList[i].replace('  ', ''))
     c.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    for j in range(0, len(secondPage_links[i])-1):        
+    for j in range(0, len(secondPage_links[i])):        
         contentScrap(secondPage_links[i][j], contShell , contLoc, Article, Articles, contName, contText)
 
 
 
-document.save('test.docx')
+document.save('done.docx')
