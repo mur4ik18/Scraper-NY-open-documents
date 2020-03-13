@@ -130,28 +130,28 @@ def fistPageTit(url, shell, mtitle):
 titleList = []
 # 
 NameList = []
-# 
+# get article name
 titleList = fistPageTit('https://www.nysenate.gov/legislation/laws/CVP','.c-law-link-container', Gtitle)
-# 
+# get article num
 NameList = fistPageTit('https://www.nysenate.gov/legislation/laws/CVP','.c-law-link-title', 'a')
 
 #
 for i in range(0, len(secondPage_links)):
-    #
+    # print Article
     print(titleList[i].replace('  ', ''))
-    #
+    # print Article num
     print(NameList[i].replace('  ', ''))
-    #
+    # write header
     p = document.add_heading(titleList[i].replace('  ', ''), 1)
-    #
+    # align center
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    #
+    # write header
     c =document.add_paragraph(NameList[i].replace('  ', ''))
-    #
+    # align center
     c.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    #
+    # get content for every pages
     for j in range(0, len(secondPage_links[i])):        
-        # 
+        # start content scrap
         contentScrap(secondPage_links[i][j], contShell , contLoc, Article, Articles, contName, contText)
 
 
