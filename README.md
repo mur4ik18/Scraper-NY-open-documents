@@ -1,1 +1,1 @@
-# Adam
+# New York website scraper
